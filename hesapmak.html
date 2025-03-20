@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilimsel Hesap Makinesi</title>
+    <style>
+    body{
+        background-color: tan;
+    }
+      h2{
+        text-align: center;
+        padding: 23px;
+        background-color: green;
+        color: black;
+        border-radius: 10px;
+      }
+
+      #clear{
+        width: 25px;
+        border: 3px solid gray;
+        border-radius: 5px;
+        padding: 26px;
+        background-color: #f44336;
+      }
+
+      .formstyle{
+        width: 250px;
+        margin: auto;
+        border: 3px solid skyblue;
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #3d4543;
+      }
+
+      input{
+        width: 10px;
+        background-color: cadetblue;
+        color: black;
+        border: 3px solid gray;
+        border-radius: 8px;
+        padding: 26px;
+        margin: 5x;
+        font-size: medium;
+        font-weight: bold;
+      }
+
+      #result{
+        width: 200px;
+        border: 5px solid black;
+        border-radius: 8px;
+        padding: 20px;
+        margin: auto;
+        background-color: #a0caaf;
+      }
+
+    </style>
+</head>
+<body>
+    <h2> Hesap Makinesi</h2>
+    <div class="formstyle">
+        
+        <form name="form1">
+        <input type="text" id="result" readonly>
+        <br><br>
+        <input type="button" value="sin" onclick="trigFunction('sin')">
+        <input type="button" value="cos" onclick="trigFunction('cos')">
+        <input type="button" value="tan" onclick="trigFunction('tan')">
+        <input type="button" value="√" onclick="squareRoot()">
+        <br>
+        <input type="button" value="log" onclick="log()">
+        <input type="button" value="exp" onclick="exp()">
+        <input type="button" value="n!" onclick="factorial()">
+        <input type="button" value="+" onclick="addToResult('+')">
+        <br>
+        <input type="button" value="7" onclick="addToResult('7')">
+        <input type="button" value="8" onclick="addToResult('8')">
+        <input type="button" value="9" onclick="addToResult('9')">
+        <input type="button" value="-" onclick="addToResult('-')">
+        <br>
+        <input type="button" value="4" onclick="addToResult('4')">
+        <input type="button" value="5" onclick="addToResult('5')">
+        <input type="button" value="6" onclick="addToResult('6')">
+        <input type="button" value="" onclick="addToResult('')">
+        <br>
+        <input type="button" value="1" onclick="addToResult('1')">
+        <input type="button" value="2" onclick="addToResult('2')">
+        <input type="button" value="3" onclick="addToResult('3')">
+        <input type="button" value="/" onclick="addToResult('/')">
+        <br>
+        <input type="button" value="0" onclick="addToResult('0')">
+        <input type="button" value="." onclick="addToResult('.')">
+        <input type="button" value="=" onclick="calculate()">
+        <input id="clear" type="button" value="C" onclick="clearResult()">
+    </form>
+    </div>
+
+    <script>
+        function addToResult(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById("result").value = eval(document.getElementById("result").value);
+            } catch (error) {
+                document.getElementById("result").value = "Hata";
+            }
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function squareRoot() {
+            let result = document.getElementById("result").value;
+            document.getElementById("result").value = Math.sqrt(parseFloat(result));
+        }
+
+        function trigFunction(func) {
+            let result = document.getElementById("result").value;
+            if (func === "sin") {
+                document.getElementById("result").value = Math.sin(parseFloat(result));
+            } else if (func === "cos") {
+                document.getElementById("result").value = Math.cos(parseFloat(result));
+            } else if (func === "tan") {
+                document.getElementById("result").value = Math.tan(parseFloat(result));
+            }
+        }
+
+        function log() {
+            let result = document.getElementById("result").value;
+            document.getElementById("result").value = Math.log10(parseFloat(result));
+        }
+
+        function exp() {
+            let result = document.getElementById("result").value;
+            document.getElementById("result").value = Math.exp(parseFloat(result));
+        }
+
+        function factorial() {
+            let result = document.getElementById("result").value;
+            let num = parseInt(result);
+            let fact = 1;
+            for (let i = 2; i <= num; i++) {
+                fact *= i;
+            }
+            document.getElementById("result").value = fact;
+        }
+    </script>
+</body>
+</html>

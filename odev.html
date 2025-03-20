@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Formu</title>
+    <style>
+        body{
+            font-family:cursive;
+            background:url("resim.jpg");background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        form{
+            border: 1px solid #f1f1f1;
+        }
+        input[type="text"], input[type="password"]{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #cccccc;
+            box-sizing: border-box;
+        }
+        button{
+            background-color: #CC00FF;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        h2{
+           color: #CC00FF;
+        }
+        label{
+            color: pink;
+        }
+        input{
+            color: #000;
+            background-color:#99CCFF ;
+        }
+
+        button:hover{
+            opacity: 0.5;
+        }
+        .cancelbtn{
+            width: auto;
+            padding: 10px 18px;
+            background-color: #FF99CC;
+        }
+    
+
+        span.psw{
+            float: right;
+            padding-top: 7px;
+            
+        }
+
+        /* Çok küçük ekranlarda responsive davranmayı engelleyelim
+         */
+
+        @media screen and (max-width:300px){
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn{
+                width: 100%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<h2> Kullanıcı Giriş Formu </h2>
+<form action="/kullanici.php" method="post">
+    <div class="container">
+
+        <label for="uname"><b>Kullanıcı Adı</b></label><br>
+        <input type="text" placeholder="Kullanıcı adını giriniz" name="uname" required><br>
+        <label for="uname"><b>E-posta</b></label><br>
+        <input type="text" placeholder="E-postanızı giriniz" name="uname" required><br>
+        <label for="psw"><b>Şifre</b></label><br>
+        <input type="password" placeholder="Şifreyi giriniz" name="psw" required><br>
+        <button type="submit",style='font-size:7px;'>&#128151; Giriş</button><br>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Oturum açık kalsın
+        </label>
+        <span class="psw",style='font-size:7px;'>&#129300;<a href="#">Sanırım Şifremi Unuttum </a></span>
+       
+    </div>
+
+    <div class="container">
+        <button type="submit" class="cancelbtn">İptal</button><br>
+        
+    </div>
+</form>
+
+</body>
+</html>
